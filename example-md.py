@@ -6,7 +6,7 @@ from numpy import linspace
 from sirius import atom_positions, set_atom_positions
 
 # get an initial guess by a single SCF iteration
-res = DFT_ground_state_find(num_dft_iter=1, config='sirius.json')
+res = DFT_ground_state_find(num_dft_iter=100, config='sirius.json')
 # extract wrappers from C++
 kset = res['kpointset']
 dft_obj = res['dft_gs']
@@ -41,8 +41,8 @@ dft_obj.update()
 dft_obj.find(density_tol=1e-10, energy_tol=1e-10, initial_tol=1e-4,
              num_dft_iter=10, write_state=False)
 
-# obtain plane-wave cofficients of the new groundstate
-C = kset.C
+# get forces
+forces = np.array(dft_obj.forces().calc_forces_total())
 
 # occupation numbers
 fn = kset.fn
