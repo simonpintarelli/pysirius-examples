@@ -4,7 +4,7 @@
 + [example-linalg.py](example-linalg.py)   Basic linear algebra operations  plane-wave coefficients (wfc objects) and occupation numbers
 + [stiefel\_manifold.py]([stiefel\_manifold.py) Evaluate total energy along a geodesic
 
-# Units #
+## Units ##
 Unless otherwise specified, SIRIUS uses Hartree and Bohr. Atom positions are
 specifed in relative coordinates to the unit cell.
 
